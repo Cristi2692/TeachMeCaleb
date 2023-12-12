@@ -1,10 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import App from "./App.jsx";
+import "./index.css";
+import { theme } from "./theme.js";
+import { typeScale } from "./themeFonts.js";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const customTheme = createTheme({
+  ...theme,
+  typography: typeScale.typography,
+});
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <ThemeProvider theme={customTheme}>
+      <App />
+    </ThemeProvider>
+  </React.StrictMode>
+);
