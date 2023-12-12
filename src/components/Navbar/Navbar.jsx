@@ -35,56 +35,64 @@ export default function HeaderView() {
     >
       <Container maxWidth={false} sx={{ width: "97%" }}>
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1 }}>
+          <Box
+            sx={{
+              flexGrow: 0,
+              justifyContent: "flex-start",
+              ml: isMobile ? -3 : 0,
+            }}
+          >
             <img
               src={logo}
               alt="logo"
               style={{ height: "130px", width: "auto" }}
             />
           </Box>
+          {isMobile && (
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              aria-label="menu"
+              sx={{ marginLeft: "auto" }}
+              onClick={handleMenu}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
           {isMobile ? (
-            <>
-              <IconButton
-                size="large"
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                sx={{ mr: 2 }}
-                onClick={handleMenu}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "right",
-                }}
-                open={open}
-                onClose={handleClose}
-                PaperProps={{
-                  sx: {
-                    backgroundColor: theme.palette.primary.main,
-                    color: "white",
-                    border: `1px solid ${theme.palette.primary.light}`,
-                  },
-                }}
-              >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleClose}>
-                    {page}
-                  </MenuItem>
-                ))}
-              </Menu>
-            </>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={open}
+              onClose={handleClose}
+              PaperProps={{
+                sx: {
+                  backgroundColor: theme.palette.primary.main,
+                  color: "white",
+                  border: `1px solid ${theme.palette.primary.light}`,
+                },
+              }}
+            >
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleClose}>
+                  {page}
+                </MenuItem>
+              ))}
+            </Menu>
           ) : (
-            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+            <Box
+              sx={{ display: "flex", justifyContent: "flex-end", flexGrow: 1 }}
+            >
               {pages.map((page) => (
                 <Button
                   key={page}
