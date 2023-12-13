@@ -1,10 +1,8 @@
 import "./App.css";
-import NavbarView from "./components/Navbar/NavbarView";
+import AppRouter from "./router/AppRouter";
+
+// import Landing from "./views/Landing/Landing";
 
 export default function App() {
-  return (
-    <div>
-      <NavbarView />
-    </div>
-  );
+  return <AppRouter />;
 }
