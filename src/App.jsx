@@ -1,10 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import NavbarView from "./components/Navbar/NavbarView";
 
 export default function App() {
   return (
     <div>
-      <Navbar />
+      <NavbarView />
     </div>
   );
 }
