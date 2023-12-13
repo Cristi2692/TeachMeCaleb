@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import "./index.css";
 import { theme } from "./theme.js";
 import { typeScale } from "./themeFonts.js";
+import { BrowserRouter } from "react-router-dom";
 
 const customTheme = createTheme({
   ...theme,
@@ -13,8 +14,10 @@ const customTheme = createTheme({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider theme={customTheme}>
-      <App />
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={customTheme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
