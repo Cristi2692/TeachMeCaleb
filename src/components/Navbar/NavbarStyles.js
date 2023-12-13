@@ -29,15 +29,13 @@ export const MenuIconButton = styled(IconButton)({
   marginLeft: 'auto',
 });
 
-export const StyledMenu = styled(Menu)(({ theme }) => ({
-  PaperProps: {
-    sx: {
-      backgroundColor: theme.palette.primary.main,
+export const StyledMenu = styled(Menu)({
+    '& .MuiPaper-root': {
+      backgroundColor: "#111111",
       color: 'white',
-      border: `1px solid ${theme.palette.primary.light}`,
+      border:  "1px solid #5A5A59",
     },
-  },
-}));
+  });
 
 export const PageButton = styled(Button)({
   color: 'white',
